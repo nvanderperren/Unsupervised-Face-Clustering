@@ -4,6 +4,8 @@ import dlib
 import glob
 import time
 import cv2
+import bz2
+import urllib
 
 
 start = time.time()
@@ -17,6 +19,10 @@ predictor_path = 'shape_predictor_5_face_landmarks.dat' # Download from http://d
 face_rec_model_path = 'dlib_face_recognition_resnet_model_v1.dat' # Download from http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2
 faces_folder_path = sys.argv[1]
 output_folder = sys.argv[2]
+
+# checks
+if not os.path.exists(output_folder):
+    os.path.makedirs(output_folder)
 
 detector = dlib.get_frontal_face_detector() #a detector to find the faces
 sp = dlib.shape_predictor(predictor_path) #shape predictor to find face landmarks
