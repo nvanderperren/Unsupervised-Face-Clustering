@@ -5,7 +5,6 @@ import glob
 import time
 import cv2
 import bz2
-import urllib
 
 
 start = time.time()
@@ -22,7 +21,8 @@ output_folder = sys.argv[2]
 
 # checks
 if not os.path.exists(output_folder):
-    os.path.makedirs(output_folder)
+    os.makedirs(output_folder)
+    print("Created folder {}!".format(output_folder))
 
 detector = dlib.get_frontal_face_detector() #a detector to find the faces
 sp = dlib.shape_predictor(predictor_path) #shape predictor to find face landmarks
