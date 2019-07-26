@@ -4,8 +4,6 @@ import dlib
 import glob
 import time
 import cv2
-import bz2
-
 
 start = time.time()
 
